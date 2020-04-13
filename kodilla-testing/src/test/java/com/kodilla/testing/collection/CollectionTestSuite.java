@@ -13,7 +13,7 @@ public class CollectionTestSuite {
     }
     @After
     public void after(){
-        System.out.println("Test Case: end");
+        System.out.println("Test Case: end\n");
     }
 
     @Test
@@ -25,7 +25,7 @@ public class CollectionTestSuite {
         exterminator.exterminate(numbers);
         ArrayList<Integer> result = exterminator.getEvenNumbers();
         //Then
-        Assert.assertEquals(null, result);
+        Assert.assertEquals(new ArrayList<Integer>(), result);
 
         System.out.println("testOddNumbersExterminatorEmptyList: OK");
     }
@@ -33,19 +33,14 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList (){
         //Given
-        ArrayList<Integer> numbers2 = new ArrayList<>(Arrays.asList(2,4));
+        ArrayList<Integer> numbers2 = new ArrayList<>(Arrays.asList(2,4,5));
         OddNumbersExterminator exterminator2 = new OddNumbersExterminator();
         //When
         exterminator2.exterminate(numbers2);
         ArrayList<Integer> result = exterminator2.getEvenNumbers();
         //Then
-        ArrayList<Integer> evenNumbers = new ArrayList<>(Arrays.asList(2,4));
-        Assert.assertEquals(evenNumbers, result);
+        Assert.assertEquals(Arrays.asList(2,4), result);
 
         System.out.println("testOddNumbersExterminatorNormalList: OK");
     }
-
-
-
-
 }

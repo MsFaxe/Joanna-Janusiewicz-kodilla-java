@@ -5,7 +5,8 @@ import java.lang.*;
 
 public class OddNumbersExterminator {
     //ArrayList<Integer> allNumbers;
-    ArrayList<Integer> evenNumbers;
+    ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
+
 
     /*public OddNumbersExterminator(ArrayList<Integer> numbers){
         this.allNumbers = numbers;
@@ -22,11 +23,11 @@ public class OddNumbersExterminator {
             }
         }
     }
-/*
+
     public void showList(){
         System.out.println("Lista przystych liczb:");
         for (Integer a: evenNumbers){
             System.out.println(a);
         }
-    }*/
+    }
 }
