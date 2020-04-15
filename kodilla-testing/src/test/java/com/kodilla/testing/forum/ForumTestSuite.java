@@ -3,12 +3,13 @@ package com.kodilla.testing.forum;
 import com.kodilla.testing.user.SimpleUser;
 import org.junit.*;
 
+//Testy z 6.3 do klasy SimpleUser, a nie ForumUser
+
 public class ForumTestSuite {
-   @Before
+    @Before
     public void before (){
         System.out.println("Test Case: begin");
     }
-
     @After
     public void after(){
         System.out.println("Test Case: end");
@@ -21,6 +22,7 @@ public class ForumTestSuite {
     public static void afterClass() {
         System.out.println("Test Suite: end");
     }
+
     @Test
     public void testCaseUsername() {
         //Given
