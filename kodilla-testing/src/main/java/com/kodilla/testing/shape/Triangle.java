@@ -15,6 +15,7 @@ public class Triangle implements Shape {
         getField();
     }
 
+
     @Override
     public String getShapeName() {
         name = "triangle";

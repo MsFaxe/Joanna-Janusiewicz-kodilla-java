@@ -12,6 +12,7 @@ public class Square implements Shape {
         getField();
     }
 
+
     @Override
     public String getShapeName() {
         name = "square";

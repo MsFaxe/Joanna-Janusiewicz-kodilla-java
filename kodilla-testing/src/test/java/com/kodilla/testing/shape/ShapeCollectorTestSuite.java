@@ -12,6 +12,7 @@ public class ShapeCollectorTestSuite {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
     }
+
     @After
     public void afterEveryTest() {
         System.out.println("Test finished.");
