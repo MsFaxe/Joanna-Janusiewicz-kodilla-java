@@ -15,6 +15,7 @@ public class ForumUser {
         this.realName = realName;
     }
 
+
     public void addPost(String author, String postBody){
         ForumPost thePost = new ForumPost(postBody, author);
         posts.add(thePost);

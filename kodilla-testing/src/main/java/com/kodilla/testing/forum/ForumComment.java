@@ -16,11 +16,9 @@ public class ForumComment {
     public ForumPost getForumPost() {
         return forumPost;
     }
-
     public String getCommentBody() {
         return commentBody;
     }
-
     public String getAuthor() {
         return author;
     }

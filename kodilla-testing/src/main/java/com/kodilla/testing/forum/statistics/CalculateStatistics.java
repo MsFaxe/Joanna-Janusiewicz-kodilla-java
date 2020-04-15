@@ -8,11 +8,6 @@ public class CalculateStatistics {
     int commentsPerUser;
     int commenstPerPost;
 
-    /*public CalculateStatistics(Statistics statistics) {
-        this.usersCount = statistics.usersNames().size();
-        this.postsCount = statistics.postsCount();
-        this.commentsCount = statistics.commentsCount();
-    }*/
 
     public void calculateAdvStatistics(Statistics statistics){
         this.usersCount = statistics.usersNames().size();

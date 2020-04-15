@@ -8,6 +8,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class testCalculateStatistics {
+
     CalculateStatistics cal = new CalculateStatistics();
     Statistics statisticsMock = mock(Statistics.class);
 
@@ -28,7 +29,6 @@ public class testCalculateStatistics {
     }
 
     int testNumber = 0;
-
     @Before
     public void startTest() {
         System.out.println("start test: " + testNumber++);
