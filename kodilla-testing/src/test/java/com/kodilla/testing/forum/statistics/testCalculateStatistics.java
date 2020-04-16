@@ -28,10 +28,11 @@ public class testCalculateStatistics {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
     }
 
-    int testNumber = 0;
+    private static int testNumber = 0;
     @Before
     public void startTest() {
-        System.out.println("start test: " + testNumber++);
+        testNumber++;
+        System.out.println("start test: " + testNumber);
     }
 
     @Test
@@ -40,7 +41,8 @@ public class testCalculateStatistics {
         usersList.add("user2");
         usersList.add("user3");
 
-        postsCount = 0;
+        postsCount = 10;
+        //postsCount = 0;
         commentsCount = 6;
 
         whenThen();
@@ -96,7 +98,7 @@ public class testCalculateStatistics {
 
     @Test
     public void testZeroUsers() {
-
+        usersList.add("user1");
         postsCount = 20;
         commentsCount = 65;
 
@@ -108,6 +110,8 @@ public class testCalculateStatistics {
         for (int i = 0; i<100 ; i++){
             usersList.add("user" + i);
         }
+
+
 
         postsCount = 500;
         commentsCount = 1265;
