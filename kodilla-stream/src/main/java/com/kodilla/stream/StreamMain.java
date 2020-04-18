@@ -1,58 +1,59 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.beautifier.PoemDecorator;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.*;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.book.Book;
+import com.kodilla.stream.book.BookDirectory;
+import com.kodilla.stream.person.People;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
-    public static void main (String[] args){
-        System.out.println("Welcome to module 7 - Stream");
+    public static void main (String[] args) {
+        BookDirectory theBookDirectory = new BookDirectory();
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Ala ma kota", (string) -> "<3 " + string + " <3");
-        poemBeautifier.beautify("Ala ma kota", (string) -> string.toUpperCase());
-        poemBeautifier.beautify("         Ala ma kota          ", (string) -> string.trim());
-        poemBeautifier.beautify("ALA MA KOTA", (string) -> string.toLowerCase() );
+        //Collectors.joining()
+        /*String theResultStringOfBooks = theBookDirectory.getTheBookList().stream()
+                .filter(book -> book.getYearOfProduction() > 2005)
+                .map(Book::toString)
+                .collect(Collectors.joining(",\n","<<",">>"));
 
+        System.out.println(theResultStringOfBooks);*/
 
-        ExpressionExecutor simpleCalculator = new ExpressionExecutor();
-        /*MathExpression codeLambda = (a, b) -> a + b;
-        expressionExecutor.executeExpression(5,3, codeLambda);
-*/
-        System.out.println("\nCalculating expressions with lambdas");
-        simpleCalculator.executeExpression(10, 5, (a, b) -> a+b);
-        simpleCalculator.executeExpression(10, 5, (a, b) -> a-b);
-        simpleCalculator.executeExpression(10, 5, (a, b) -> a*b);
-        simpleCalculator.executeExpression(10, 5, (a, b) -> a/b);
+        //Collectors.toMap()
+        /*Map <String, Book> theResultMapOfBook = theBookDirectory.getTheBookList().stream()
+                .filter(book -> book.yearOfPublication() >2005)
+                .collect(Collectors.toMap(Book::getSignature, book -> book));
 
-        System.out.println("\nCalculating expressions with method references");
-        simpleCalculator.executeExpression(10, 5, FunctionalCalculator::addAToB);
-        simpleCalculator.executeExpression(10, 5, FunctionalCalculator::subBFromA);
-        simpleCalculator.executeExpression(10, 5, FunctionalCalculator::multiplyAByB);
-        simpleCalculator.executeExpression(10, 5, FunctionalCalculator::divideAByB);
-
-/*
-        //wyrażenie lambda zamiast tworzenia klasy implementującej interfejs Executor
-        Processor processor = new Processor();
-        Executor codeToExecute = () -> System.out.println("\nThis is example text.");
-        processor.execute(codeToExecute);
-        //LUB
-        //Processor processor = new Processor();
-        //        processor.execute(() -> System.out.println("This is an example text."));
+        System.out.println("# elements: " + theResultMapOfBook.size());
+        theResultMapOfBook.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);*/
 
 
-        //użycie klasy Processor do wykonania zadań przewidzianych dla przykładowej implementacji interfejsu Executor
-        Processor processor2 = new Processor();
-        ExecuteSaySomething executeSaySomething = new ExecuteSaySomething();
-        processor2.execute(executeSaySomething);
+        //Collectors.toList()
+        /*List<Book> theResultListOFBook = theBookDirectory.getTheBookList()
+                .stream()
+                .filter(book -> book.yearOfPublication() > 2005)
+                .collect(Collectors.toList());
 
-        //tworzenie obiektu klasy i wywołanie metody
-        SaySomething saySomething = new SaySomething();
-        saySomething.say();*/
+        System.out.println("# elements: " + theResultListOFBook.size());
+        theResulrListOFBook.stream().forEach(System.out::println);*/
 
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+
+        //"book" package
+        /*BookDirectory theBookDirectory = new BookDirectory();
+        theBookDirectory.getTheBookList().stream()
+                .filter(book -> book.yearOfPublication() > 2005)
+                .forEach(System.out::println);*/
+
+
+        //"person" package
+        /*People.getList().stream().
+                map(String::toUpperCase)
+                .filter(s -> s.length() > 11)
+                .map(s -> s.substring(0, s.indexOf(' ') + 2) + ".")
+                .filter(s -> s.substring(0, 1).equals("M"))
+                .forEach(System.out::println);*/
     }
 }
