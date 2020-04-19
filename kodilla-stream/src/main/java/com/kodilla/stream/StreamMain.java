@@ -1,59 +1,27 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.book.Book;
-import com.kodilla.stream.book.BookDirectory;
-import com.kodilla.stream.person.People;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.time.LocalDate.*;
+
 public class StreamMain {
     public static void main (String[] args) {
-        BookDirectory theBookDirectory = new BookDirectory();
+        Forum forum = new Forum();
+        forum.getUsersList().stream().forEach(System.out::println);
 
-        //Collectors.joining()
-        /*String theResultStringOfBooks = theBookDirectory.getTheBookList().stream()
-                .filter(book -> book.getYearOfProduction() > 2005)
-                .map(Book::toString)
-                .collect(Collectors.joining(",\n","<<",">>"));
+        System.out.println("\nFiltered users: ");
+        Map<Integer, ForumUser> mapOfUsers= forum.getUsersList().stream()
+                .filter(ForumUser -> ForumUser.getGender() == 'M')
+                .filter(ForumUser -> ForumUser.getDataOfBirth().isBefore(LocalDate.of(2000,04,19)))
+                .filter(ForumUser -> ForumUser.getPostsCount() != 0)
+                .collect(Collectors.toMap(ForumUser::getIdentityNumber, forumUser -> forumUser));
 
-        System.out.println(theResultStringOfBooks);*/
-
-        //Collectors.toMap()
-        /*Map <String, Book> theResultMapOfBook = theBookDirectory.getTheBookList().stream()
-                .filter(book -> book.yearOfPublication() >2005)
-                .collect(Collectors.toMap(Book::getSignature, book -> book));
-
-        System.out.println("# elements: " + theResultMapOfBook.size());
-        theResultMapOfBook.entrySet().stream()
-                .map(entry -> entry.getKey() + ": " + entry.getValue())
-                .forEach(System.out::println);*/
-
-
-        //Collectors.toList()
-        /*List<Book> theResultListOFBook = theBookDirectory.getTheBookList()
-                .stream()
-                .filter(book -> book.yearOfPublication() > 2005)
-                .collect(Collectors.toList());
-
-        System.out.println("# elements: " + theResultListOFBook.size());
-        theResulrListOFBook.stream().forEach(System.out::println);*/
-
-
-        //"book" package
-        /*BookDirectory theBookDirectory = new BookDirectory();
-        theBookDirectory.getTheBookList().stream()
-                .filter(book -> book.yearOfPublication() > 2005)
-                .forEach(System.out::println);*/
-
-
-        //"person" package
-        /*People.getList().stream().
-                map(String::toUpperCase)
-                .filter(s -> s.length() > 11)
-                .map(s -> s.substring(0, s.indexOf(' ') + 2) + ".")
-                .filter(s -> s.substring(0, 1).equals("M"))
-                .forEach(System.out::println);*/
+        mapOfUsers.entrySet().stream().map(entry -> entry.getKey() + ": " + entry.getValue()).forEach(System.out::println);
     }
 }
