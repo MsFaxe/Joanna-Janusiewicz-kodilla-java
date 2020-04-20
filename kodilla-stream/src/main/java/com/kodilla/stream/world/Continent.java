@@ -1,20 +1,22 @@
 package com.kodilla.stream.world;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public final class Continent {
-   /* private final String continent;
-    private final Set<Country> countryList = new HashSet<>();
+    private final String continentName;
+    private final List<Country> countryList = new ArrayList<>();
 
-    public Continent(String continent) {
-        this.continent = continent;
+    public Continent(String continentName) {
+        this.continentName = continentName;
     }
 
-    public Set<String> getLocationsOfFriends() {
-        return friends.stream()
-                .map(friend -> friend.getLocation())
-                .collect(Collectors.toSet());
-    }*/
+    public void addCountry(Country country){
+        countryList.add(country);
+    }
+
+    public List<Country> getCountryList() {
+        return countryList;
+    }
 }
