@@ -24,6 +24,6 @@ public final class BookDirectory {
     }
 
     public List<Book> getTheBookList() {
-        return theBookList;
+        return new ArrayList<>(theBookList);
     }
 }
