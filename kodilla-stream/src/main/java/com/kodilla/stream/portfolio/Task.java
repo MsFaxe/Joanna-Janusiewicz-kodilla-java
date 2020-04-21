@@ -19,6 +19,7 @@ public final class Task {
         this.deadline = deadline;
     }
 
+
     public String getTitle() {
         return title;
     }

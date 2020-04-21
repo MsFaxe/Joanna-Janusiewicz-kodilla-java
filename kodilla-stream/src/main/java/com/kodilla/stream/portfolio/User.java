@@ -19,6 +19,7 @@ public final class User {
         return realName;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
