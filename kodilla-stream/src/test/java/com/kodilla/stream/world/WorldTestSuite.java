@@ -16,7 +16,7 @@ public class WorldTestSuite {
         Country england = new Country("England", "454534321321546");
         Country china = new Country("China", "867651542332132");
         Country japan = new Country("Japan", "564512312313121");
-        Country tailand = new Country("Tailand", "545454545424566");
+        Country thailand = new Country("Thailand", "545454545424566");
 
         Continent Europe = new Continent("Europe");
         Europe.addCountry(poland);
@@ -24,7 +24,7 @@ public class WorldTestSuite {
         Continent Asia = new Continent("Asia");
         Europe.addCountry(china);
         Europe.addCountry(japan);
-        Europe.addCountry(tailand);
+        Europe.addCountry(thailand);
 
         World world = new World();
         world.addContinent(Europe);
