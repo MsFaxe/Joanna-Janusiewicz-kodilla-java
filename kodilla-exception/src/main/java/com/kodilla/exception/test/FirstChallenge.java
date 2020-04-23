@@ -7,9 +7,11 @@ public class FirstChallenge {
             double result =  a / b;
             if (Double.isInfinite(result))
                 throw new ArithmeticException();
-            System.out.println(result);
+
         }catch (ArithmeticException e){
             System.out.println("Exception: " + e);
+        }finally {
+
         }
     }
 
@@ -21,6 +23,6 @@ public class FirstChallenge {
 
         FirstChallenge firstChallenge = new FirstChallenge();
 
-        firstChallenge.divide(3.2, 0.0);
+        firstChallenge.divide(3.2, 0);
     }
 }
