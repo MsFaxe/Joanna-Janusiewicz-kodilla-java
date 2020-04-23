@@ -2,7 +2,7 @@ package com.kodilla.exception.test;
 
 public class FirstChallenge {
 
-    public void divide(double a, double b)/* throws  ArithmeticException*/{
+    public void divide(double a, double b) throws  ArithmeticException{
         try{
             double result =  a / b;
             if (Double.isInfinite(result))
@@ -20,7 +20,7 @@ public class FirstChallenge {
      * This main can throw an ArithmeticException!!!
      * @param args
      */
-    public static void main(String[] args) throws ArithmeticException{
+    public static void main(String[] args){
 
         FirstChallenge firstChallenge = new FirstChallenge();
 
