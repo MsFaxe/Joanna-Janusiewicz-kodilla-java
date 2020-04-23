@@ -7,6 +7,7 @@ public class FirstChallenge {
             double result =  a / b;
             if (Double.isInfinite(result))
                 throw new ArithmeticException();
+            System.out.println(result);
 
         }catch (ArithmeticException e){
             System.out.println("Exception: " + e);
