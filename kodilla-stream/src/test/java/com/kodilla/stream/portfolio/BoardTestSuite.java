@@ -156,10 +156,7 @@ public class BoardTestSuite {
                 .average().getAsDouble();
 
 
-
-
         //Then
-        //Assert.assertEquals(3, averageDaysOfProgress);
         Assert.assertEquals(10, averageDaysOfProgress,0);
     }
 }
