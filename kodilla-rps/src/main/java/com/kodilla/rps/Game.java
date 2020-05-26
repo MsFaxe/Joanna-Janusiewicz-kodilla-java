@@ -18,17 +18,6 @@ public class Game {
     private int humanScore = 0;
     private int computerScore = 0;
 
-    public void enterTheNumberOfRound(){
-        System.out.println("Wprowadź ilość rund do rozegrania: ");
-        try {
-            Scanner scanner = new Scanner(System.in);
-            numberOfRound = scanner.nextInt();
-        } catch (Exception e) {
-            System.out.println("Bład, wprowadź liczbę.");
-            enterTheNumberOfRound();
-        }
-    }
-
     public void start() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Wprowadź imię: ");
@@ -46,6 +35,19 @@ public class Game {
 
         humanPlay();
     }
+
+
+    private void enterTheNumberOfRound(){
+        System.out.println("Wprowadź ilość rund do rozegrania: ");
+        try {
+            Scanner scanner = new Scanner(System.in);
+            numberOfRound = scanner.nextInt();
+        } catch (Exception e) {
+            System.out.println("Bład, wprowadź liczbę.");
+            enterTheNumberOfRound();
+        }
+    }
+
 
     private void humanPlay(){
         Scanner scanner = new Scanner(System.in);
@@ -90,6 +92,7 @@ public class Game {
             }
         }
     }
+
 
     private void computerPlay(){
         Random random = new Random();
@@ -150,6 +153,7 @@ public class Game {
         currendRound++;
     }
 
+
     private void endGame(){
         System.out.println("Wynik gry: " + name + " - " + humanScore + ", komputer - " + computerScore);
         if (humanScore> computerScore){
@@ -161,6 +165,7 @@ public class Game {
         }
         //System.exit(1);
     }
+
 
     private void startNewGame(){
         System.out.println("Czy chcesz zacząć od nowa?");
