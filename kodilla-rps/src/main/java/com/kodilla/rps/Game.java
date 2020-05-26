@@ -18,10 +18,6 @@ public class Game {
     private int humanScore = 0;
     private int computerScore = 0;
 
-    public int getNumberOfRound() {
-        return numberOfRound;
-    }
-
     public void enterTheNumberOfRound(){
         System.out.println("Wprowadź ilość rund do rozegrania: ");
         try {
@@ -39,7 +35,7 @@ public class Game {
         name = scanner.nextLine();
 
         enterTheNumberOfRound();
-        System.out.println(name + ", zagrasz " + getNumberOfRound() + " rund przeciwko komputerowi");
+        System.out.println(name + ", zagrasz " + numberOfRound + " rund przeciwko komputerowi");
 
 
         System.out.println("\nklawisz 1 - zagranie \"kamień\", " +
