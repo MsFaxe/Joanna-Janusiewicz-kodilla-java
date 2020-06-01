@@ -29,6 +29,7 @@ public class MovieStore {
 
     public static void main(String[] args) {
         MovieStore movieStore = new MovieStore();
-        movieStore.getMovies().entrySet().stream().map(e -> e.getKey() + e.getValue() + "!").forEach(System.out::print);
+        System.out.println(movieStore.getMovies().entrySet().stream()
+                .flatMap(e ->  e.getValue().stream()).collect(Collectors.joining(", ")));
     }
 }
