@@ -30,6 +30,6 @@ public class MovieStore {
     public static void main(String[] args) {
         MovieStore movieStore = new MovieStore();
         System.out.println(movieStore.getMovies().entrySet().stream()
-                .flatMap(e ->  e.getValue().stream()).collect(Collectors.joining(", ")));
+                .flatMap(e ->  e.getValue().stream()).collect(Collectors.joining("! ")));
     }
 }
