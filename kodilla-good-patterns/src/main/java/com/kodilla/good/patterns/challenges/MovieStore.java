@@ -26,8 +26,8 @@ public class MovieStore {
 
         return booksTitlesWithTranslations;
     }
-
     public static void main(String[] args) {
+        //13.1
         MovieStore movieStore = new MovieStore();
         System.out.println(movieStore.getMovies().entrySet().stream()
                 .flatMap(e ->  e.getValue().stream()).collect(Collectors.joining("! ")));
