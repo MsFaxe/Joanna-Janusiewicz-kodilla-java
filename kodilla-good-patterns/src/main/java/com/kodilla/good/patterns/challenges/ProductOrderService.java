@@ -19,7 +19,7 @@ public class ProductOrderService {
 
         if(isRented) {
             informationService.inform(saleRequest.getUser());
-            saleRepository.createRental(saleRequest.getUser(), saleRequest.getPurchasesDate());
+            saleRepository.createSale(saleRequest.getUser(), saleRequest.getPurchasesDate());
             return new SaleDto(saleRequest.getUser(), true);
         } else {
             return new SaleDto(saleRequest.getUser(), false);
