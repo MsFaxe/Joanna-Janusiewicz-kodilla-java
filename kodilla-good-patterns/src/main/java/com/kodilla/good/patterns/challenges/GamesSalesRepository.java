@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class GamesSalesRepository implements SaleRepository {
 
     @Override
-    public SaleRepository createRental(User user, LocalDateTime purchaseDate) {
-        return null;
+    public boolean createSale(User user, LocalDateTime purchaseDate) {
+        return true;
     }
 }
