@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.solid;
 
 public class User {
+
     private String name;
     private String surname;
 

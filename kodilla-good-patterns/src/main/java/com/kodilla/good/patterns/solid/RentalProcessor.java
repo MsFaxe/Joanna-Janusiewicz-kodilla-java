@@ -14,14 +14,14 @@ public class RentalProcessor {
         this.rentalRepository = rentalRepository;
     }
 
-    public RentalDto process(final User user, final LocalDateTime from, final LocalDateTime to) {
-        boolean isRented = rentalService.rent(user, from, to);
+    public RentalDto process(final RentRequest rentRequest) {
+        boolean isRented = rentalService.rent(rentRequest.getUser(), rentRequest.getRentFrom(), rentRequest.getRentTo());
         if (isRented){
-            informationService.sendEmail(user);
-            rentalRepository.createRental(user, from, to);
-            return new RentalDto(user, true);
+            informationService.sendEmail(rentRequest.getUser());
+            rentalRepository.createRental(rentRequest.getUser(), rentRequest.getRentFrom(), rentRequest.getRentTo());
+            return new RentalDto(rentRequest.getUser(), true);
         } else {
-            return new RentalDto(user, false);
+            return new RentalDto(rentRequest.getUser(), false);
         }
     }
 }
