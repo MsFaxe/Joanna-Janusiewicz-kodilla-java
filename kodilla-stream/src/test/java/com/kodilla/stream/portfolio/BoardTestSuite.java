@@ -141,22 +141,22 @@ public class BoardTestSuite {
 
 
 
-    @Test
-    public void testAddTaskListAverageWorkingOnTask(){
-        //Given
-        Board project = prepareTestData();
-
-        //When
-        List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("In progress"));
-        double averageDaysOfProgress = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
-                .flatMap(n -> n.getTasks().stream())
-                .mapToInt(p-> LocalDate.now().getDayOfMonth() - (p.getCreated().getDayOfMonth()))
-                .average().getAsDouble();
-
-
-        //Then
-        Assert.assertEquals(10, averageDaysOfProgress,0);
-    }
+//    @Test
+//    public void testAddTaskListAverageWorkingOnTask(){
+//        //Given
+//        Board project = prepareTestData();
+//
+//        //When
+//        List<TaskList> inProgressTasks = new ArrayList<>();
+//        inProgressTasks.add(new TaskList("In progress"));
+//        double averageDaysOfProgress = project.getTaskLists().stream()
+//                .filter(inProgressTasks::contains)
+//                .flatMap(n -> n.getTasks().stream())
+//                .mapToInt(p-> LocalDate.now().getDayOfMonth() - (p.getCreated().getDayOfMonth()))
+//                .average().getAsDouble();
+//
+//
+//        //Then
+//        Assert.assertEquals(10, averageDaysOfProgress,0);
+//    }
 }
