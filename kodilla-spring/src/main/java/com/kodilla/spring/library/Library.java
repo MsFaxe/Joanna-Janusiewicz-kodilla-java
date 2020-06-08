@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+//@Service
 public final class Library {
     private final List<String> books = new ArrayList<>();
 
@@ -15,9 +15,12 @@ public final class Library {
     private LibraryDbController libraryDbController;
 
     //1st injection method - constructor
-    @Autowired
-    public Library(LibraryDbController libraryDbController) {
+//    @Autowired
+    public Library(final LibraryDbController libraryDbController) {
         this.libraryDbController = libraryDbController;
+    }
+
+    public Library() {
     }
 
     //2nd injection method - setter
