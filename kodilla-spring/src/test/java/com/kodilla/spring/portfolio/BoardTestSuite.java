@@ -9,17 +9,42 @@ import java.util.ArrayList;
 
 public class BoardTestSuite {
     @Test
-    public void testTaskAdd() {
+    public void testTaskAddToDoList() {
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
         board.getToDoList().getTasks().add("task to do");
-        board.getInProgressList().getTasks().add("task in progress");
-        board.getDoneList().getTasks().add("task done");
         //When
-        String tasks = board.toString();
+        String tasks = board.getToDoList().toString();
         //Then
         System.out.println(tasks);
+        Assert.assertEquals("[task to do]", tasks);
+    }
+    @Test
+    public void testTaskAddInProgressList() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(BoardConfig.class);
+        Board board = context.getBean(Board.class);
+        board.getInProgressList().getTasks().add("task in progress");
+        //When
+        String tasks = board.getInProgressList().toString();
+        //Then
+        System.out.println(tasks);
+        Assert.assertEquals("[task in progress]", tasks);
+    }
+    @Test
+    public void testTaskDoneList() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(BoardConfig.class);
+        Board board = context.getBean(Board.class);
+        board.getDoneList().getTasks().add("task done");
+        //When
+        String tasks = board.getDoneList().toString();
+        //Then
+        System.out.println(tasks);
+        Assert.assertEquals("[task done]", tasks);
     }
 }
