@@ -8,6 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.ArrayList;
 
 public class BoardTestSuite {
+
     @Test
     public void testTaskAddToDoList() {
         //Given
@@ -21,6 +22,7 @@ public class BoardTestSuite {
         System.out.println(tasks);
         Assert.assertEquals("[task to do]", tasks);
     }
+
     @Test
     public void testTaskAddInProgressList() {
         //Given
@@ -34,6 +36,7 @@ public class BoardTestSuite {
         System.out.println(tasks);
         Assert.assertEquals("[task in progress]", tasks);
     }
+
     @Test
     public void testTaskDoneList() {
         //Given

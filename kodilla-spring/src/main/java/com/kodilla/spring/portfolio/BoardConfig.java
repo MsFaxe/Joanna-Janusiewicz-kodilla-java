@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class BoardConfig {
+
     @Bean
     public TaskList toDoList() {
         return new TaskList();
