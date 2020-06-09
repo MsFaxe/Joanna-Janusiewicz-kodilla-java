@@ -21,6 +21,7 @@ public class AirportsSet {
     public Airport getAirport(String airportName) {
         return airportSet.stream()
                 .filter(e -> e.getAirportName().equals(airportName))
-                .collect(Collectors.toList()).get(0);
+                .findAny().get();
+        // zamiast collect(Collectors.toList()).get(0);
     }
 }
