@@ -4,6 +4,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public class NumberOfFlightGenerator {
+
     private final int numberOfFlight;
 
     public NumberOfFlightGenerator() {

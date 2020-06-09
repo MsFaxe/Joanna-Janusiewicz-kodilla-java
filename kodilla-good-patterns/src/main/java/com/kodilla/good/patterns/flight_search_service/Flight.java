@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.flight_search_service;
 
 public class Flight {
+
     private final int numberOfFlight;
     private final Airport flightFrom;
     private final Airport flightTo;
@@ -28,3 +29,4 @@ public class Flight {
                 '}';
     }
 }
+

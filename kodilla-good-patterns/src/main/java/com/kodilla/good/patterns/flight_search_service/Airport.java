@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.flight_search_service;
 
 public class Airport {
+
     private final AirportCode code;
     private final String airportName;
 
@@ -15,7 +16,7 @@ public class Airport {
 
     @Override
     public String toString() {
-        return "Airport{'"  + code +
+        return "Airport {'"  + code +
                 "', " + airportName + '}';
     }
 }

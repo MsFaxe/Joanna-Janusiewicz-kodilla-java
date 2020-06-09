@@ -3,6 +3,7 @@ package com.kodilla.good.patterns.flight_search_service;
 import java.util.Objects;
 
 public class AirportCode {
+
      private final String code;
 
      public AirportCode(String code) {

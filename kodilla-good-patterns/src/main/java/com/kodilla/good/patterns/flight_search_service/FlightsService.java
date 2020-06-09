@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class FlightsService {
+
     private final FlightsSet flightsSet;
 
     public FlightsService() {
