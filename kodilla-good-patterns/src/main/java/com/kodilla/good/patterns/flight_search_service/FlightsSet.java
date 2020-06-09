@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class FlightsSet {
-    private HashSet<Flight> flightsSet = new HashSet<>();
+    private final HashSet<Flight> flightsSet = new HashSet<>();
 
     public FlightsSet() {
         AirportsSet airportsSet = new AirportsSet();

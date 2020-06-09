@@ -3,7 +3,7 @@ package com.kodilla.good.patterns.flight_search_service;
 import java.util.ArrayList;
 
 public class ListOfSearchedFlights {
-    private ArrayList<Flight> flightsList;
+    private final ArrayList<Flight> flightsList;
 
     public ListOfSearchedFlights(ArrayList<Flight> flightsList) {
         this.flightsList = flightsList;
