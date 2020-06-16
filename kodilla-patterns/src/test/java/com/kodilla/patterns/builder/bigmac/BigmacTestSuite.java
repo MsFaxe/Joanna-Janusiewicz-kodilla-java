@@ -1,6 +1,5 @@
 package com.kodilla.patterns.builder.bigmac;
 
-import jdk.nashorn.internal.AssertsEnabled;
 import org.junit.Assert;
 import org.junit.Test;
 
