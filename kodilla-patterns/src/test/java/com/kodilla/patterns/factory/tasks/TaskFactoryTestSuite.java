@@ -37,4 +37,5 @@ public class TaskFactoryTestSuite {
         //Then
         Assert.assertEquals( true, shoppingTask.isTaskExecuted());
     }
+
 }
