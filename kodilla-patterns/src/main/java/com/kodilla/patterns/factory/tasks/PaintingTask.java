@@ -26,3 +26,4 @@ public class PaintingTask implements Task {
         return true;
     }
 }
+
