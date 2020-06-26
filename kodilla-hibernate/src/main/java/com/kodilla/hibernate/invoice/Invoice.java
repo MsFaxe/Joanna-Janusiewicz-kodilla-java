@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "PRODUCTS")
-public class Product {
+@Table(name = "INVOICES")
+public class Invoice {
     private int id;
-    private String name;
-    private List<Item> productItems = new ArrayList<>();
+    private String number;
+    private List<Item> items = new ArrayList<>();
 
-    public Product() {
+    public Invoice() {
     }
 
-    public Product(String name) {
-        this.name = name;
+    public Invoice(String number) {
+        this.number = number;
     }
 
     @Id
@@ -32,26 +32,26 @@ public class Product {
     }
 
     @NotNull
-    @Column(name = "PRODUCT_NAME")
-    public String getName() {
-        return name;
+    @Column(name = "NUMBER")
+    public String getNumber() {
+        return number;
     }
 
-    private void setName(String name) {
-        this.name = name;
+    private void setNumber(String number) {
+        this.number = number;
     }
 
     @OneToMany(
         targetEntity = Item.class,
-        mappedBy = "product",
+        mappedBy = "invoice",
         cascade = CascadeType.ALL,
         fetch = FetchType.LAZY
     )
-    public List<Item> getProductItems() {
-        return productItems;
+    public List<Item> getItems() {
+        return items;
     }
 
-    private void setProductItems(List<Item> item) {
-        this.productItems = item;
+    private void setItems(List<Item> item) {
+        this.items = item;
     }
 }
