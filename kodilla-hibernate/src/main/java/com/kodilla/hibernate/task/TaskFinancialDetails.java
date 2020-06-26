@@ -27,7 +27,7 @@ public class TaskFinancialDetails {
         return id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
@@ -36,7 +36,7 @@ public class TaskFinancialDetails {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    private void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -45,7 +45,7 @@ public class TaskFinancialDetails {
         return paid;
     }
 
-    public void setPaid(boolean paid) {
+    private void setPaid(boolean paid) {
         this.paid = paid;
     }
 }
