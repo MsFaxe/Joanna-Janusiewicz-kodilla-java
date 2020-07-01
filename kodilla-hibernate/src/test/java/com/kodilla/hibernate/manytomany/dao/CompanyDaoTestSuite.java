@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany() {
@@ -58,6 +62,58 @@ public class CompanyDaoTestSuite {
             companyDao.deleteById(greyMatterId);
         } catch (Exception e) {
             //do nothing
+        }
+    }
+
+    @Test
+    public void testNamedQueriesRetrieveEmplyees() {
+        //Given
+        Employee johnS = new Employee("John", "Smith");
+        Employee stephanieS = new Employee("Stephanie", "Smith");
+
+        employeeDao.save(johnS);
+        int johnSId = johnS.getId();
+        employeeDao.save(stephanieS);
+        int stephanieSId = stephanieS.getId();
+
+        //When
+        List<Employee> employees = employeeDao.reviewEmployeesWithLastname("Smith");
+
+        //Then
+        Assert.assertEquals(2, employees.size());
+
+        //CleanUp
+        try{
+            employeeDao.deleteById(johnSId);
+            employeeDao.deleteById(stephanieSId);
+        } catch (Exception e){
+
+        }
+    }
+
+    @Test
+    public void testNamedQueriesRetrieveCompanies() {
+        //Given
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+
+        //When
+        List<Company> companies = companyDao.retrieveCompaniesWithFirstThreeLetter("sof%");
+
+        //Then
+        Assert.assertEquals(1, companies.size());
+
+        //CleanUp
+        try{
+            employeeDao.deleteById(softwareMachineId);
+            employeeDao.deleteById(dataMaestersId);
+        } catch (Exception e){
+
         }
     }
 }
