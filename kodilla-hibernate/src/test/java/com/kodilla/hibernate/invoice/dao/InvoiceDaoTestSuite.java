@@ -25,16 +25,9 @@ public class InvoiceDaoTestSuite {
     public void testInvoiceDaoSave() {
         //Given
         Invoice invoice = new Invoice("1234/xyz");
-        invoiceDao.save(invoice);
-        int invoiceId = invoice.getId();
 
         Product pc = new Product("personal computer");
-        productDao.save(pc);
-        int pcId = pc.getId();
-
         Product nb = new Product("notebook");
-        productDao.save(nb);
-        int nbId = nb.getId();
 
         Item item1 = new Item (pc, new BigDecimal(7000), 1);
         Item item2 = new Item (pc, new BigDecimal(7000), 2);
@@ -43,15 +36,23 @@ public class InvoiceDaoTestSuite {
         //When
         pc.getProductItems().add(item1);
         pc.getProductItems().add(item2);
-        nb.getProductItems().add(item1);
+        nb.getProductItems().add(item3);
 
         item1.setInvoice(invoice);
         item2.setInvoice(invoice);
         item3.setInvoice(invoice);
 
+        invoiceDao.save(invoice);
+        int invoiceId = invoice.getId();
+
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
         invoice.getItems().add(item3);
+
+        productDao.save(nb);
+        int nbId = nb.getId();
+        productDao.save(pc);
+        int pcId = pc.getId();
 
         List<Item> readInvoice = invoice.getItems();
 
