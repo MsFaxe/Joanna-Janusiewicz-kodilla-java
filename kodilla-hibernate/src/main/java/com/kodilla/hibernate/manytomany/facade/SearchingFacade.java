@@ -34,7 +34,7 @@ public class SearchingFacade {
             }
         } finally {
             if (wasError) {
-                LOGGER.info("No companies includes " + partOfCompanyName + " in name");
+                LOGGER.info("No companies includes \"" + partOfCompanyName + "\" in name");
             }
         }
     }
