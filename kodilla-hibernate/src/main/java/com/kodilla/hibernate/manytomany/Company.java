@@ -10,6 +10,11 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES WHERE company_name LIKE :COMPANY_NAME",
         resultClass = Company.class
 )
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesInclude",
+        query = "SELECT * FROM COMPANIES WHERE company_name LIKE :PART_OF_COMPANY_NAME",
+        resultClass = Company.class
+)
 
 @Entity
 @Table (name = "COMPANIES")

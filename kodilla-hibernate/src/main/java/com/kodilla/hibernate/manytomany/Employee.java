@@ -9,9 +9,14 @@ import java.util.List;
         name = "Employee.reviewEmployeesWithLastname",
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
+@NamedNativeQuery(
+        name = "Employee.retrieveEmployeesInclude",
+        query = "SELECT * FROM EMPLOYEES WHERE firstname LIKE :PART_OF_NAME OR lastname LIKE :PART_OF_NAME",
+        resultClass = Employee.class
+)
 
 @Entity
-@Table(name = "EMPLOYESS")
+@Table(name = "EMPLOYEES")
 public class Employee {
     private int id;
     private String firstname;
