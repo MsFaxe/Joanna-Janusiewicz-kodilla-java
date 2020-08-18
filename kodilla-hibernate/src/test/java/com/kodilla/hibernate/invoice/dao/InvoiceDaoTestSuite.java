@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
@@ -42,12 +44,14 @@ public class InvoiceDaoTestSuite {
         item2.setInvoice(invoice);
         item3.setInvoice(invoice);
 
-        invoiceDao.save(invoice);
-        int invoiceId = invoice.getId();
+
 
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
         invoice.getItems().add(item3);
+
+        invoiceDao.save(invoice);
+        int invoiceId = invoice.getId();
 
         productDao.save(nb);
         int nbId = nb.getId();
