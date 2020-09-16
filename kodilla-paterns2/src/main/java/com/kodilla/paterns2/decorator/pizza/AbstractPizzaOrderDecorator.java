@@ -8,6 +8,7 @@ public abstract class AbstractPizzaOrderDecorator implements PizzaOrder {
     public AbstractPizzaOrderDecorator(PizzaOrder pizzaOrder) {
         this.pizzaOrder = pizzaOrder;
     }
+
     @Override
     public BigDecimal getCost() {
         return pizzaOrder.getCost();
