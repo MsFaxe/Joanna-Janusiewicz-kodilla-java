@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class Watcher {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Watcher.class);
+public class Watcher2 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Watcher2.class);
 
     @Before("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))")
     public void logEvent() {
