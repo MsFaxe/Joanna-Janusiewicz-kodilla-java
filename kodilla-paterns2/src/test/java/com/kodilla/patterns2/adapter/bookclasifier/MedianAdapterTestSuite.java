@@ -14,14 +14,9 @@ public class MedianAdapterTestSuite {
         //Given
         MedianAdapter medianAdapter = new MedianAdapter();
         Set<Book> bookSet = new HashSet<>();
-//        for (int i = 1; i >= 5; i++) {
-//            bookSet.add(new Book("title"+i, "author"+i, 2000+i, "a"+i));
-//        }
-        bookSet.add(new Book("title", "author", 2001, "a1"));
-        bookSet.add(new Book("title", "author", 2002, "a2"));
-        bookSet.add(new Book("title", "author", 2003, "a3"));
-        bookSet.add(new Book("title", "author", 2004, "a4"));
-        bookSet.add(new Book("title", "author", 2005, "a5"));
+        for (int i = 1; i <= 5; i++) {
+            bookSet.add(new Book("title"+i, "author"+i, 2000+i, "a"+i));
+        }
         //When
         int median = medianAdapter.publicationYearMedian(bookSet);
         //Then
